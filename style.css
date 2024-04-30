@@ -1,0 +1,157 @@
+@font-face {
+    font-family: Poppins;
+    src: url("./fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: MarkoOne;
+    src: url("./fonts/MarkoOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: Sacramento;
+    src: url("./fonts/Sacramento-Regular.ttf");
+}
+
+:root{
+    --cor-texto:#20323D ;
+    --bground: #E1E9EE ;
+    --cor-primaria: #3AB8AF;
+    --cor-secundaria: #B92BC6;
+}
+
+/* Reset */
+body, h1, h2, ul, li, p, dd, dt, dl{
+    margin: 0px;
+    padding: 0px;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+ul{
+    list-style: none;
+}
+
+body{
+    background-image: url("/assets/background-Papelreciclado.png"), url("assets/background-cinzasuave.png")  ;
+    background-color: var(--bground);      
+    color: var(--cor-texto);  
+    display: grid;
+    font-family: Poppins;
+    margin: 0px 8rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.menu{
+    display: grid;
+    grid-column: 1/5;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    place-items: end;
+    /*background: aquamarine;*/
+}
+
+.menu ul{   
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.menu li a{
+    display: block;
+    padding: 10px;
+    margin-right: 32px;
+    text-decoration: none;
+    color: var(--preto);
+    font-size: 1.125rem; 
+    position: relative;   
+}
+
+.menu li a::after{
+    content: "";
+    position: absolute;
+    background-color: var(--cor-primaria);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -1px;
+    transition: 0.3s;
+}
+
+.menu li a:hover::after{
+    width: 100%;
+}
+
+.menu li a.ativo{
+    font-weight: 900; 
+}
+
+.grid-section{
+    display: grid;
+    grid-column: 1/5;
+    box-sizing: border-box;
+    width: 100%; 
+    margin-bottom: 3rem;   
+}
+
+.titulo-secundario{
+    font-family: Poppins;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.paragrafo-menor{
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 400;  
+}
+
+.bem-vindo .assinatura{
+    font-family: Sacramento;
+    font-size: 4.5rem;
+    font-weight: 100;
+}
+
+.bem-vindo .solucao{
+    padding: 0px 5px;
+    border-radius: 10px;
+    background-color: #C5EBE8;   
+}
+
+.bem-vindo .acessivel{
+    padding: 0px 5px;
+    border-radius: 10px;
+    background-color: #EBC0EF;
+}
+
+.bem-vindo .paragrafo-menor{
+    margin-top: 1rem;
+}
+
+.paragrafo-menor > a{
+    text-decoration: none;
+    color: var(--cor-secundaria);
+}
+
+.projetos{
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    position: relative;   
+}
+
+.rodape{
+    place-items: center;
+}
+
+.rodape .rede-social{
+    margin-top: 0.5rem;
+    display: flex;
+}
+
+
+
+
