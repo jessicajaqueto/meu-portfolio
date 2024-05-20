@@ -13,14 +13,28 @@
     src: url("./fonts/Sacramento-Regular.ttf");
 }
 
+
+/*-------------------- VARIABLES --------------------*/
 :root{
     --cor-texto:#20323D ;
     --bground: #E1E9EE ;
     --cor-primaria: #3AB8AF;
     --cor-secundaria: #B92BC6;
+    --gray-color:#475B68;
+    --text-design: #EBC0EF;
+    --text-program:#C5EBE8;
 }
 
-/* Reset */
+.darkmode:root{
+    --cor-texto:#E1E9EE ;
+    --bground:#20323D  ;
+    --cor-primaria: #B92BC6;
+    --cor-secundaria: #3AB8AF;
+    --text-design:#B92BC6;
+    --text-program:#3AB8AF;
+}
+
+/*-------------------- RESET --------------------*/
 body, h1, h2, ul, li, p, dd, dt, dl{
     margin: 0px;
     padding: 0px;
@@ -36,22 +50,43 @@ ul{
 }
 
 body{
-    background-image: url("/assets/background-Papelreciclado.png"), url("assets/background-cinzasuave.png")  ;
     background-color: var(--bground);      
     color: var(--cor-texto);  
     display: grid;
     font-family: Poppins;
     margin: 0px 8rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    transition: background 0.2s linear;
 }
 
+/*-------------------- DEFAULT --------------------*/
+.grid-section{
+    display: grid;
+    grid-column: 1/5;
+    box-sizing: border-box;
+    width: 100%; 
+    margin-bottom: 3rem;   
+}
+
+.titulo-secundario{
+    font-family: Poppins;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.paragrafo-menor{
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 400;  
+}
+
+/*-------------------- NAVIGATION --------------------*/
 .menu{
     display: grid;
     grid-column: 1/5;
     margin-top: 1rem;
     margin-bottom: 2rem;
     place-items: end;
-    /*background: aquamarine;*/
 }
 
 .menu ul{   
@@ -89,26 +124,43 @@ body{
     font-weight: 900; 
 }
 
-.grid-section{
-    display: grid;
-    grid-column: 1/5;
-    box-sizing: border-box;
-    width: 100%; 
-    margin-bottom: 3rem;   
+/* CONTINUAR EDITANDO O BOTÃO DE DARK E LIGHT  https://www.youtube.com/watch?v=l8aC7BsKhTI*/
+
+/*.menu .label-theme{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.titulo-secundario{
-    font-family: Poppins;
-    font-size: 2.5rem;
-    font-weight: 400;
+.menu #input-dark{
+    position: absolute;
+    opacity: 0;
 }
 
-.paragrafo-menor{
-    font-family: Poppins;
-    font-size: 1rem;
-    font-weight: 400;  
+.menu .label-theme .moon{
+    font-size: 3em;
+    color: #666;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5));
 }
 
+.toggle{
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-color: #2b2b2b;
+    border-radius: 50%;
+    box-shadow: inset 0 8px 60px rgba(0, 0, 0, .1);
+    z-index: -1;
+}*/
+
+
+
+/*-------------------- SEÇÃO BEM-VINDO --------------------*/
 .bem-vindo .assinatura{
     font-family: Sacramento;
     font-size: 4.5rem;
@@ -118,13 +170,13 @@ body{
 .bem-vindo .solucao{
     padding: 0px 5px;
     border-radius: 10px;
-    background-color: #C5EBE8;   
+    background-color: var(--text-program);   
 }
 
 .bem-vindo .acessivel{
     padding: 0px 5px;
     border-radius: 10px;
-    background-color: #EBC0EF;
+    background-color: var(--text-design);
 }
 
 .bem-vindo .paragrafo-menor{
@@ -136,13 +188,86 @@ body{
     color: var(--cor-secundaria);
 }
 
-.projetos{
+/*-------------------- SEÇÃO PROJETOS --------------------*/
+
+.project-group{
     display: grid;
     gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    position: relative;   
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
+.projects{
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    border-radius: 10px;
+    background-color: #F8F8FF;
+    box-shadow: 0px 0px 3px 8px rgba(201,201,201,10, 0.75);
+}
+
+.project-desc{
+    padding: 0px 30px 30px;    
+}
+
+.projects img{   
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.projects .project-tittle{
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    margin-top: 0px;
+}
+
+.projects .project-tittle::before{
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 100px;
+    margin-right: 10px;
+    display: inline-block;
+    background-color: var(--cor-primaria);
+}
+
+.project-desc .tag-group .tag-btn{
+    display: inline-block;
+    background-color: var(--gray-color);
+    color: var(--bground);
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 8px;    
+}
+
+.project-desc .p-date{
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--gray-color);
+}
+
+.project-desc .btn-default{
+    background-color: var(--cor-primaria);
+    padding: 10px;
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: var(--bground);
+    text-transform: uppercase;
+    font-weight: 900;  
+    transition: 0.3s ease-in-out;  
+}
+
+.project-desc .btn-default:hover{
+    background-color: #2E908A;  
+}
+
+
+/*-------------------- FOOTER --------------------*/
 .rodape{
     place-items: center;
 }
@@ -150,6 +275,10 @@ body{
 .rodape .rede-social{
     margin-top: 0.5rem;
     display: flex;
+}
+
+.rodape .rede-social a{
+    margin-right: 15px;
 }
 
 
