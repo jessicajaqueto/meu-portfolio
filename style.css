@@ -23,15 +23,7 @@
     --gray-color:#475B68;
     --text-design: #EBC0EF;
     --text-program:#C5EBE8;
-}
-
-.darkmode:root{
-    --cor-texto:#E1E9EE ;
-    --bground:#20323D  ;
-    --cor-primaria: #B92BC6;
-    --cor-secundaria: #3AB8AF;
-    --text-design:#B92BC6;
-    --text-program:#3AB8AF;
+    --cinza-suave:#D9D9D9;
 }
 
 /*-------------------- RESET --------------------*/
@@ -68,16 +60,50 @@ body{
     margin-bottom: 3rem;   
 }
 
-.titulo-secundario{
+.first-tittle{
     font-family: Poppins;
     font-size: 2.5rem;
     font-weight: 400;
 }
 
-.paragrafo-menor{
+.special-tittle{
+    font-family: MarkoOne;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.second-tittle{
+    font-family: Poppins;
+    font-size: 2rem;
+    font-weight: 200;
+}
+
+.third-tittle{
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    margin-top: 0px;
+}
+
+.paragraph{
     font-family: Poppins;
     font-size: 1rem;
     font-weight: 400;  
+}
+
+.padrao-h2{
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    margin-top: 0px;
+}
+
+.padrao-h2::before{
+    content: '';
+    width: 30px;
+    height: 10px;
+    border-radius: 100px;
+    margin-right: 10px;
+    display: inline-block;
+    background-color: var(--cor-primaria);
 }
 
 /*-------------------- NAVIGATION --------------------*/
@@ -120,70 +146,36 @@ body{
     width: 100%;
 }
 
-.menu li a.ativo{
+.menu li a.active{
     font-weight: 900; 
 }
 
-/* CONTINUAR EDITANDO O BOTÃO DE DARK E LIGHT  https://www.youtube.com/watch?v=l8aC7BsKhTI*/
-
-/*.menu .label-theme{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu #input-dark{
-    position: absolute;
-    opacity: 0;
-}
-
-.menu .label-theme .moon{
-    font-size: 3em;
-    color: #666;
-    filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5));
-}
-
-.toggle{
-    position: absolute;
-    display: block;
-    width: 80px;
-    height: 80px;
-    background-color: #2b2b2b;
-    border-radius: 50%;
-    box-shadow: inset 0 8px 60px rgba(0, 0, 0, .1);
-    z-index: -1;
-}*/
-
-
-
 /*-------------------- SEÇÃO BEM-VINDO --------------------*/
-.bem-vindo .assinatura{
+.welcome .signature{
     font-family: Sacramento;
     font-size: 4.5rem;
     font-weight: 100;
+    text-decoration: underline;
+    padding-bottom: 5px;
 }
 
-.bem-vindo .solucao{
+.welcome .solution{
     padding: 0px 5px;
     border-radius: 10px;
-    background-color: var(--text-program);   
+    background-color: var(--text-program);
 }
 
-.bem-vindo .acessivel{
+.welcome .accessible{
     padding: 0px 5px;
     border-radius: 10px;
     background-color: var(--text-design);
 }
 
-.bem-vindo .paragrafo-menor{
+.welcome .paragraph{
     margin-top: 1rem;
 }
 
-.paragrafo-menor > a{
+.paragraph > a{
     text-decoration: none;
     color: var(--cor-secundaria);
 }
@@ -209,11 +201,20 @@ body{
     padding: 0px 30px 30px;    
 }
 
+.project-img{
+    overflow: hidden;
+}
+
 .projects img{   
     width: 100%;
     height: 400px;
     object-fit: cover;
     border-radius: 10px 10px 0px 0px;
+    transition: .5s ease-in-out;
+}
+
+.projects:hover img{
+   transform: scale(1.1);
 }
 
 .projects .project-tittle{
@@ -263,21 +264,99 @@ body{
 }
 
 .project-desc .btn-default:hover{
-    background-color: #2E908A;  
+    background-color: #2E908A; 
 }
 
 
+.grid-titulo .grupo-tag .tag{
+    display: inline-block;
+    background-color: var(--cinza-suave);
+    color: var(--cor-texto);
+    padding: 8px 15px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+.grid-quemsoueu{
+    grid-column: 1/5;
+}
+
+.grid-quemsoueu .paragrafo-texto{
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.grid-experiencias h2{
+    margin-bottom: 0px;
+}
+
+.grid-experiencias .grupo-exp{
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));   
+}
+
+.grid-experiencias .div-titulo-exp{
+    display: flex;
+    align-items: center;
+}
+
+.grid-experiencias .titulo-exp{
+    text-transform: uppercase;
+}
+
+.grid-experiencias .data-exp{
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+.grid-experiencias .card-exp{
+    margin-top: 20px
+}
+
+.grid-experiencias .data-exp::before{
+    content: '';
+    width: 60px;
+    height: 1px;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: var(--cor-texto);
+}
+
+.grid-experiencias p{
+    margin-top: 10px;
+}
+
+.grid-experiencias .tecnologias-exp{
+    font-size: 0.8rem;
+}
+
+.grid-grupo{
+    display: flex;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(800px,1fr));
+}
+
 /*-------------------- FOOTER --------------------*/
-.rodape{
+.footer{
     place-items: center;
 }
 
-.rodape .rede-social{
+.footer .social-media{
     margin-top: 0.5rem;
-    display: flex;
+    display: flex;    
 }
 
-.rodape .rede-social a{
+.footer .social-media a{
+    transition: 0.5s;
+}
+
+.footer .social-media a:hover{
+    transform: scale(1.1);
+}
+
+.footer .social-media a{
     margin-right: 15px;
 }
 
